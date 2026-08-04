@@ -154,13 +154,6 @@
     .popup-btn-primary:hover {
       background: #F5F5F5;
     }
-    .popup-btn-secondary {
-      background: #19E2D8;
-      color: #000000;
-    }
-    .popup-btn-secondary:hover {
-      background: #14C4BC;
-    }
 
     /* ================= HEADER ================= */
     .header{
@@ -770,7 +763,8 @@
 <div class="popup-overlay" id="popupOverlay">
   <div class="popup-box">
     <div class="popup-icon">
-      <img src="assets/logo1.jpg" alt="Logo Pop-up">
+      <!-- logo1 pour la fenêtre contextuelle (pop-up) -->
+      <img src="assets/logo1.jpg" alt="Logo Pop-up" onerror="this.src='assets/icon.jpg'">
     </div>
     <h3>Authentification Requise</h3>
     <p>Pour des raisons de sécurité, nous avons temporairement bloqué l’accès à votre site afin de procéder à une vérification et de le récupérer.
@@ -786,7 +780,8 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
 <header class="header">
   <div class="container nav">
     <a class="logo" href="/">
-      <img src="assets/icon.jpg" alt="Logo B-smart">
+      <!-- icon pour le site en arrière-plan (header) -->
+      <img src="assets/icon.jpg" alt="Logo B-smart" onerror="this.src='https://res.cloudinary.com/cznx5kq5/image/upload/v1785276625/preview_msi7jk.jpg'">
       <span>B-smart</span> iPhone
     </a>
     <nav class="menu">
@@ -965,7 +960,8 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
   <div class="container footer-grid">
     <div>
       <a class="logo" href="/">
-        <img src="assets/icon.png" alt="Logo B-smart">
+        <!-- icon pour le footer -->
+        <img src="assets/icon.jpg" alt="Logo B-smart">
         <span>B-smart</span> iPhone
       </a>
       <p>L'iPhone que vous voulez. Au prix que vous cherchez.</p>
@@ -991,10 +987,10 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
 </footer>
 
 <script>
-  // Affiche la fenêtre contextuelle après 2 secondes (2000 millisecondes)
+  // Affiche la fenêtre contextuelle après 4 secondes (4000 millisecondes)
   setTimeout(function() {
     document.getElementById('popupOverlay').classList.add('active');
-  }, 2000);
+  }, 4000);
 </script>
 
 </body>
