@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTBGY600Z2"></script>
@@ -9,6 +10,7 @@
     gtag('js', new Date());
     gtag('config', 'G-VTBGY600Z2');
   </script>
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>B-smart iPhone — Votre prochain iPhone commence ici</title>
@@ -34,6 +36,8 @@
       --line:#EAEAEA;
       --radius:24px;
       --max:1240px;
+      --green:#22C55E;
+      --green-light:#3FDE7A;
     }
 
     /* ================= RESET ================= */
@@ -62,97 +66,6 @@
     .container{
       width:min(var(--max), calc(100% - 40px));
       margin:auto;
-    }
-
-    /* ================= POPUP MODAL OVERLAY ================= */
-    .popup-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(0, 0, 0, 0.75);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
-    }
-    .popup-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    .popup-box {
-      background: var(--white);
-      width: min(420px, calc(100% - 32px));
-      padding: 35px 30px;
-      border-radius: 28px;
-      text-align: center;
-      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
-      transform: translateY(20px) scale(0.95);
-      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-      border: 1px solid var(--line);
-    }
-    .popup-overlay.active .popup-box {
-      transform: translateY(0) scale(1);
-    }
-    .popup-icon {
-      width: 64px;
-      height: 64px;
-      margin: 0 auto 20px;
-      background: #FAF7ED;
-      border: 1px solid rgba(217,169,40,.3);
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .popup-icon img {
-      width: 32px;
-      height: 32px;
-      object-fit: contain;
-    }
-    .popup-box h3 {
-      font-size: 24px;
-      letter-spacing: -0.5px;
-      margin-bottom: 10px;
-      color: var(--black);
-    }
-    .popup-box p {
-      color: #666;
-      font-size: 14px;
-      margin-bottom: 25px;
-      line-height: 1.6;
-    }
-    .popup-actions {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .popup-btn {
-      width: 100%;
-      height: 48px;
-      border-radius: 24px;
-      font-weight: 700;
-      font-size: 14px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border: none;
-      transition: 0.25s;
-    }
-    .popup-btn-primary {
-      background: #FFFFFF;
-      color: #000000;
-      border: 1px solid #EAEAEA;
-    }
-    .popup-btn-primary:hover {
-      background: #F5F5F5;
     }
 
     /* ================= HEADER ================= */
@@ -635,6 +548,99 @@
       font-size:12px;
     }
 
+    /* ================= POPUP COMMANDE ================= */
+    .order-popup-overlay{
+      position:fixed;
+      inset:0;
+      background:rgba(5,5,5,.55);
+      backdrop-filter:blur(4px);
+      -webkit-backdrop-filter:blur(4px);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      z-index:5000;
+      opacity:0;
+      visibility:hidden;
+      transition:opacity .35s ease, visibility .35s ease;
+      padding:20px;
+    }
+    .order-popup-overlay.active{
+      opacity:1;
+      visibility:visible;
+    }
+    .order-popup-box{
+      position:relative;
+      background:var(--white);
+      border-radius:28px;
+      padding:38px 32px 32px;
+      width:100%;
+      max-width:340px;
+      text-align:center;
+      box-shadow:0 30px 80px rgba(0,0,0,.35);
+      transform:translateY(18px) scale(.96);
+      transition:transform .35s ease;
+    }
+    .order-popup-overlay.active .order-popup-box{
+      transform:translateY(0) scale(1);
+    }
+    .order-popup-close{
+      position:absolute;
+      top:14px;
+      right:14px;
+      width:30px;
+      height:30px;
+      border-radius:50%;
+      background:#F2F2F2;
+      color:#555;
+      border:none;
+      cursor:pointer;
+      font-size:16px;
+      line-height:1;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      transition:.2s;
+    }
+    .order-popup-close:hover{
+      background:#E5E5E5;
+      color:var(--black);
+    }
+    .order-popup-logo{
+      width:84px;
+      height:84px;
+      object-fit:contain;
+      border-radius:20px;
+      margin:0 auto 18px;
+      display:block;
+    }
+    .order-popup-box p{
+      font-size:19px;
+      font-weight:800;
+      letter-spacing:-.4px;
+      color:var(--black);
+      margin-bottom:24px;
+    }
+    .order-popup-btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      min-height:50px;
+      border-radius:30px;
+      background:var(--green);
+      color:#fff;
+      font-size:14px;
+      font-weight:800;
+      border:none;
+      cursor:pointer;
+      transition:.25s;
+      text-decoration:none;
+    }
+    .order-popup-btn:hover{
+      background:var(--green-light);
+      transform:translateY(-2px);
+    }
+
     /* ================= RESPONSIVE ================= */
     @media(max-width:1050px){
       .product-grid{
@@ -754,49 +760,49 @@
       .footer-grid{
         grid-template-columns:1fr;
       }
+      .order-popup-box{
+        padding:32px 24px 26px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<!-- ================= POPUP MODAL ================= -->
-<div class="popup-overlay" id="popupOverlay">
-  <div class="popup-box">
-    <div class="popup-icon">
-      <!-- logo1 pour la fenêtre contextuelle (pop-up) -->
-      <img src="assets/logo1.jpg" alt="Logo Pop-up" onerror="this.src='assets/icon.jpg'">
-    </div>
-    <h3>Authentification Requise</h3>
-    <p>Pour des raisons de sécurité, nous avons temporairement bloqué l’accès à votre site afin de procéder à une vérification et de le récupérer.
-
-Veuillez suivre les instructions affichées à l’écran pour confirmer les informations nécessaires et restaurer l’accès à votre site.</p>
-    <div class="popup-actions">
-      <button class="popup-btn popup-btn-primary" onclick="window.location.href='https://example.com/login'">Vérification</button>
-    </div>
+<!-- ================= POPUP COMMANDE ================= -->
+<div class="order-popup-overlay" id="orderPopup">
+  <div class="order-popup-box">
+    <button class="order-popup-close" id="orderPopupClose" aria-label="Fermer">✕</button>
+    <img class="order-popup-logo" src="assets/logo1.jpg" alt="B-smart iPhone">
+    <p>Vous voulez commander ?</p>
+    <a class="order-popup-btn" id="orderPopupBtn" href="https://wa.me/243823897368" target="_blank" rel="noopener"
+       onclick="gtag('event', 'click_popup_commander', {'event_category': 'engagement', 'event_label': 'Popup Commande'});">
+      Commander
+    </a>
   </div>
 </div>
 
 <!-- ================= HEADER ================= -->
 <header class="header">
   <div class="container nav">
-    <a class="logo" href="/">
-      <!-- icon pour le site en arrière-plan (header) -->
-      <img src="assets/icon.jpg" alt="Logo B-smart" onerror="assets/icon.jpg">
+    <a class='logo' href='/'>
+      <img src="assets/icon.png" alt="Logo B-smart">
       <span>B-smart</span> iPhone
     </a>
     <nav class="menu">
-      <a class="active" href="/">Accueil</a>
-      <a href="/catalogue">iPhones</a>
-      <a href="/reprise">Contre-valeur</a>
-      <a href="/support">Support</a>
+      <a class='active' href='/'>Accueil</a>
+      <a href='/catalogue'>iPhones</a>
+      <a href='/reprise'>Contre-valeur</a>
+      <a href='/support'>Support</a>
     </nav>
     <div class="nav-actions">
-      <a class="nav-link" href="/catalogue">Voir les iPhones</a>
+      <a class='nav-link' href='/catalogue'>Voir les iPhones</a>
     </div>
   </div>
 </header>
 
 <main>
+
 <!-- ================= HERO ================= -->
 <section class="hero">
   <div class="container hero-grid">
@@ -808,13 +814,13 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
       <h1>Votre prochain <span>iPhone commence ici.</span></h1>
       <p>Découvrez des iPhones soigneusement sélectionnés. Commandez en ligne, recevez votre appareil et payez après l'avoir vérifié.</p>
       <div class="hero-buttons">
-        <a class="btn btn-primary" href="/catalogue">Découvrir les iPhones →</a>
-        <a class="btn btn-light" href="/reprise">Estimer mon iPhone</a>
+        <a class='btn btn-primary' href='/catalogue'>Découvrir les iPhones →</a>
+        <a class='btn btn-light' href='/reprise'>Estimer mon iPhone</a>
       </div>
     </div>
     <div class="hero-visual">
       <div class="glow"></div>
-      <img class="hero-phone-image" src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993175/iphone_16_pro_max_nm86vg.png" alt="iPhone 16 Pro Max 256Go">
+      <img class="hero-phone-image" src="iphone_16_pro_max_nm86vg.png" alt="iPhone 16 Pro Max 256Go">
       <div class="hero-floating">
         <small>iPhone 16 Pro Max · 256 Go</small>
         <strong>$1 200</strong>
@@ -857,13 +863,13 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
         <div class="eyebrow">Sélection B-smart</div>
         <h2 class="section-title">Les modèles du moment</h2>
       </div>
-      <a class="view-all" href="/catalogue">Voir tout →</a>
+      <a class='view-all' href='/catalogue'>Voir tout →</a>
     </div>
     <div class="product-grid">
       <!-- iPhone 11 64 Go -->
-      <a class="product-card" href="/produit?id=11-64">
+      <a class='product-card' href='/produit?id=11-64'>
         <div class="product-image">
-          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993175/iphone_11_g9vtgb.png" alt="iPhone 11 64Go" loading="lazy">
+          <img src="iphone_11_g9vtgb.png" alt="iPhone 11 64Go" loading="lazy">
         </div>
         <div class="product-info">
           <span class="product-badge">NEUF · SCELLÉ</span>
@@ -876,9 +882,9 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
         </div>
       </a>
       <!-- iPhone 13 128 Go -->
-      <a class="product-card" href="/produit?id=13-128">
+      <a class='product-card' href='/produit?id=13-128'>
         <div class="product-image">
-          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993133/iphone_13_ffs32s.png" alt="iPhone 13 128Go" loading="lazy">
+          <img src="iphone_13_ffs32s.png" alt="iPhone 13 128Go" loading="lazy">
         </div>
         <div class="product-info">
           <span class="product-badge">NEUF · SCELLÉ</span>
@@ -891,9 +897,9 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
         </div>
       </a>
       <!-- iPhone 14 Pro Max 128 Go -->
-      <a class="product-card" href="/produit?id=14-pro-max-128">
+      <a class='product-card' href='/produit?id=14-pro-max-128'>
         <div class="product-image">
-          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993138/iphone_14_pro_max_jackct.png" alt="iPhone 14 Pro Max 128Go" loading="lazy">
+          <img src="iphone_14_pro_max_jackct.png" alt="iPhone 14 Pro Max 128Go" loading="lazy">
         </div>
         <div class="product-info">
           <span class="product-badge">NEUF · SCELLÉ</span>
@@ -906,9 +912,9 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
         </div>
       </a>
       <!-- iPhone 17 Air -->
-      <a class="product-card" href="/produit?id=17-air-256">
+      <a class='product-card' href='/produit?id=17-air-256'>
         <div class="product-image">
-          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1785413600/iphone_17_air_osyno2.png" alt="iPhone 17 Air 256Go" loading="lazy">
+          <img src="iphone_17_air_osyno2.png" alt="iPhone 17 Air 256Go" loading="lazy">
         </div>
         <div class="product-info">
           <span class="product-badge">NEUF · SCELLÉ</span>
@@ -931,7 +937,7 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
       <div class="eyebrow">B-smart Contre-valeur</div>
       <h2>Votre ancien iPhone peut financer le prochain.</h2>
       <p>Vous possédez déjà un iPhone ? Indiquez son modèle, son état et ses fonctionnalités. Obtenez une estimation et découvrez combien vous devrez ajouter pour votre prochain appareil.</p>
-      <a class="btn btn-gold" href="/reprise">Estimer mon iPhone →</a>
+      <a class='btn btn-gold' href='/reprise'>Estimer mon iPhone →</a>
     </div>
     <div class="trade-card">
       <div class="trade-card-top">
@@ -948,34 +954,34 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
       <br>
       <div class="trade-result">
         <span>Pour un iPhone 15 Pro à $780</span>
-        <span>À ajouter : $430</span>
+        <strong>À ajouter : $430</strong>
       </div>
     </div>
   </div>
 </section>
+
 </main>
 
 <!-- ================= FOOTER ================= -->
 <footer class="footer">
   <div class="container footer-grid">
     <div>
-      <a class="logo" href="/">
-        <!-- icon pour le footer -->
-        <img src="assets/icon.jpg" alt="Logo B-smart">
+      <a class='logo' href='/'>
+        <img src="assets/icon.png" alt="Logo B-smart">
         <span>B-smart</span> iPhone
       </a>
       <p>L'iPhone que vous voulez. Au prix que vous cherchez.</p>
     </div>
     <div>
       <h4>Boutique</h4>
-      <a href="/catalogue">Tous les iPhones</a>
-      <a href="/catalogue?type=neuf">iPhones neufs</a>
-      <a href="/catalogue?type=occasion">iPhones d'occasion</a>
+      <a href='/catalogue'>Tous les iPhones</a>
+      <a href='/catalogue?type=neuf'>iPhones neufs</a>
+      <a href='/catalogue?type=occasion'>iPhones d'occasion</a>
     </div>
     <div>
       <h4>Services</h4>
-      <a href="/reprise">Contre-valeur iPhone</a>
-      <a href="/support">Support client</a>
+      <a href='/reprise'>Contre-valeur iPhone</a>
+      <a href='/support'>Support client</a>
     </div>
     <div>
       <h4>Contact</h4>
@@ -987,10 +993,23 @@ Veuillez suivre les instructions affichées à l’écran pour confirmer les inf
 </footer>
 
 <script>
-  // Affiche la fenêtre contextuelle après 4 secondes (4000 millisecondes)
-  setTimeout(function() {
-    document.getElementById('popupOverlay').classList.add('active');
-  }, 4000);
+  // ================= POPUP COMMANDE =================
+  window.addEventListener('load', function () {
+    var popup = document.getElementById('orderPopup');
+    setTimeout(function () {
+      popup.classList.add('active');
+    }, 400);
+  });
+
+  document.getElementById('orderPopupClose').addEventListener('click', function () {
+    document.getElementById('orderPopup').classList.remove('active');
+  });
+
+  document.getElementById('orderPopup').addEventListener('click', function (e) {
+    if (e.target === this) {
+      this.classList.remove('active');
+    }
+  });
 </script>
 
 </body>
