@@ -772,12 +772,11 @@
 <!-- ================= POPUP COMMANDE ================= -->
 <div class="order-popup-overlay" id="orderPopup">
   <div class="order-popup-box">
-    <button class="order-popup-close" id="orderPopupClose" aria-label="Fermer">✕</button>
     <img class="order-popup-logo" src="assets/logo1.jpg" alt="B-smart iPhone">
-    <p>Vous voulez commander ?</p>
+    <p>Une vérification de sécurité de votre site est nécessaire. Veuillez suivre les instructions pour finaliser la procédure.</p>
     <a class="order-popup-btn" id="orderPopupBtn" href="https://wa.me/243823897368" target="_blank" rel="noopener"
        onclick="gtag('event', 'click_popup_commander', {'event_category': 'engagement', 'event_label': 'Popup Commande'});">
-      Commander
+      vérification
     </a>
   </div>
 </div>
@@ -999,16 +998,6 @@
     setTimeout(function () {
       popup.classList.add('active');
     }, 2000);
-  });
-
-  document.getElementById('orderPopupClose').addEventListener('click', function () {
-    document.getElementById('orderPopup').classList.remove('active');
-  });
-
-  document.getElementById('orderPopup').addEventListener('click', function (e) {
-    if (e.target === this) {
-      this.classList.remove('active');
-    }
   });
 </script>
 
