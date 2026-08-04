@@ -1,0 +1,148 @@
+<!DOCTYPE html><html lang="fr">
+<head>  <!-- Google tag (gtag.js) -->  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VTBGY600Z2"></script>  <script>    window.dataLayer = window.dataLayer || [];    function gtag(){dataLayer.push(arguments);}    gtag('js', new Date());    gtag('config', 'G-VTBGY600Z2');  </script>
+  <meta charset="UTF-8">  <meta name="viewport" content="width=device-width, initial-scale=1.0">  <title>B-smart iPhone — Votre prochain iPhone commence ici</title>  <meta name="description" content="Achetez votre iPhone à Kinshasa. Livraison et paiement à la réception.">  <meta property="og:title" content="B-smart iPhone — Votre prochain iPhone commence ici">  <meta property="og:description" content="Achetez votre iPhone à Kinshasa. Livraison et paiement à la réception.">  <meta property="og:image" content="https://res.cloudinary.com/cznx5kq5/image/upload/v1785276625/preview_msi7jk.jpg">  <meta property="og:url" content="https://bsmart-iphone.netlify.app/">  <meta property="og:type" content="website">
+  <style>    /* ================= VARIABLES ================= */    :root{      --black:#050505;      --dark:#0b0b0d;      --dark-card:#111111;      --gold:#D9A928;      --gold-light:#F5C542;      --white:#FFFFFF;      --soft:#F7F7F7;      --gray:#A8A8A8;      --text:#1A1A1A;      --line:#EAEAEA;      --radius:24px;      --max:1240px;    }
+    /* ================= RESET ================= */    *{      margin:0;      padding:0;      box-sizing:border-box;    }    html{      scroll-behavior:smooth;    }    body{      font-family:-apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Segoe UI", Roboto, Arial, sans-serif;      background:var(--white);      color:var(--text);      line-height:1.5;      overflow-x:hidden;    }    a{      text-decoration:none;      color:inherit;    }    button, input, select{      font:inherit;    }    .container{      width:min(var(--max), calc(100% - 40px));      margin:auto;    }
+
+    /* ================= POPUP MODAL OVERLAY ================= */
+    .popup-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 99999;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.4s ease;
+    }
+    .popup-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    .popup-box {
+      background: var(--white);
+      width: min(420px, calc(100% - 32px));
+      padding: 35px 30px;
+      border-radius: 28px;
+      text-align: center;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.3);
+      transform: translateY(20px) scale(0.95);
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      border: 1px solid var(--line);
+    }
+    .popup-overlay.active .popup-box {
+      transform: translateY(0) scale(1);
+    }
+    .popup-icon {
+      width: 64px;
+      height: 64px;
+      margin: 0 auto 20px;
+      background: #FAF7ED;
+      border: 1px solid rgba(217,169,40,.3);
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .popup-icon img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .popup-box h3 {
+      font-size: 24px;
+      letter-spacing: -0.5px;
+      margin-bottom: 10px;
+      color: var(--black);
+    }
+    .popup-box p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 25px;
+      line-height: 1.6;
+    }
+    .popup-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .popup-btn {
+      width: 100%;
+      height: 48px;
+      border-radius: 24px;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: none;
+      transition: 0.25s;
+    }
+    .popup-btn-primary {
+      background: #FFFFFF;
+      color: #000000;
+      border: 1px solid #EAEAEA;
+    }
+    .popup-btn-primary:hover {
+      background: #F5F5F5;
+    }
+    .popup-btn-secondary {
+      background: #19E2D8;
+      color: #000000;
+    }
+    .popup-btn-secondary:hover {
+      background: #14C4BC;
+    }
+
+    /* ================= HEADER ================= */    .header{      position:sticky;      top:0;      z-index:1000;      background:rgba(255,255,255,.92);      backdrop-filter:blur(20px);      -webkit-backdrop-filter:blur(20px);      border-bottom:1px solid rgba(0,0,0,.07);    }    .nav{      height:72px;      display:flex;      align-items:center;      justify-content:space-between;      gap:30px;    }    .logo{      display:flex;      align-items:center;      gap:10px;      font-size:20px;      font-weight:800;      letter-spacing:-.7px;      white-space:nowrap;    }    .logo img{      width:34px;      height:34px;      object-fit:contain;    }    .logo span{      color:var(--gold);    }    .menu{      display:flex;      align-items:center;      gap:32px;    }    .menu a{      font-size:14px;      color:#555;      transition:.2s;    }    .menu a:hover, .menu a.active{      color:var(--black);    }    .nav-actions{      display:flex;      align-items:center;    }    .nav-link{      padding:11px 19px;      border-radius:30px;      background:var(--black);      color:white;      font-size:13px;      font-weight:700;      transition:.25s;    }    .nav-link:hover{      background:var(--gold);      color:var(--black);    }
+    /* ================= HERO ================= */    .hero{      background:#fff;      min-height:700px;      display:flex;      align-items:center;      overflow:hidden;    }    .hero-grid{      display:grid;      grid-template-columns:1fr 1fr;      align-items:center;      gap:50px;      padding:80px 0;    }    .hero-eyebrow{      display:inline-flex;      align-items:center;      gap:8px;      padding:7px 13px;      background:#FAF7ED;      border:1px solid rgba(217,169,40,.25);      border-radius:30px;      font-size:12px;      font-weight:700;      color:#80651A;      margin-bottom:22px;    }    .dot{      width:7px;      height:7px;      border-radius:50%;      background:var(--gold);    }    .hero h1{      font-size:clamp(48px, 6vw, 82px);      line-height:.98;      letter-spacing:-5px;      max-width:650px;      margin-bottom:28px;    }    .hero h1 span{      color:var(--gold);    }    .hero p{      color:#6F6F6F;      font-size:18px;      max-width:520px;      line-height:1.7;      margin-bottom:35px;    }    .hero-buttons{      display:flex;      gap:12px;      flex-wrap:wrap;    }    .btn{      display:inline-flex;      align-items:center;      justify-content:center;      min-height:50px;      padding:0 24px;      border-radius:30px;      font-size:14px;      font-weight:700;      transition:.25s;      border:none;      cursor:pointer;    }    .btn-primary{      background:var(--black);      color:white;    }    .btn-primary:hover{      background:var(--gold);      color:var(--black);      transform:translateY(-2px);    }    .btn-light{      background:#F5F5F5;      color:var(--black);    }    .btn-light:hover{      background:#EAEAEA;    }
+    /* ================= HERO VISUAL ================= */    .hero-visual{      position:relative;      min-height:520px;      display:flex;      align-items:center;      justify-content:center;    }    .glow{      position:absolute;      width:440px;      height:440px;      border-radius:50%;      background:radial-gradient(circle, rgba(217,169,40,.18), transparent 68%);    }    .hero-phone-image{      position:relative;      z-index:2;      width:min(390px, 80%);      max-height:530px;      object-fit:contain;      filter:drop-shadow(25px 35px 35px rgba(0,0,0,.22));      transform:rotate(4deg);      transition:.4s;    }    .hero-phone-image:hover{      transform:rotate(0deg) scale(1.03);    }    .hero-floating{      position:absolute;      right:0;      bottom:45px;      background:rgba(255,255,255,.94);      backdrop-filter:blur(20px);      padding:22px;      width:225px;      border-radius:20px;      box-shadow:0 20px 50px rgba(0,0,0,.12);      border:1px solid #EFEFEF;      z-index:5;    }    .hero-floating small{      color:#777;      display:block;      margin-bottom:5px;    }    .hero-floating strong{      font-size:24px;      color:var(--gold);    }
+    /* ================= SERVICES ================= */    .trust{      background:linear-gradient(135deg, #050505, #111111);      border-top:1px solid #30250E;      border-bottom:1px solid #30250E;      padding:20px 0;    }    .trust-grid{      display:grid;      grid-template-columns:repeat(4, minmax(0,1fr));      gap:10px;    }    .trust-item{      min-width:0;      min-height:220px;      padding:22px 10px 18px;      display:flex;      flex-direction:column;      align-items:center;      justify-content:center;      text-align:center;      border:1px solid rgba(217,169,40,.65);      border-radius:26px;      background:linear-gradient(145deg, #151515, #080808);      box-shadow:inset 0 0 25px rgba(217,169,40,.04), 0 10px 25px rgba(0,0,0,.25);      transition:.3s;    }    .trust-item:hover{      transform:translateY(-5px);      border-color:var(--gold-light);      box-shadow:0 15px 35px rgba(217,169,40,.12);    }    .trust-icon{      width:100px;      height:100px;      margin-bottom:15px;      display:flex;      align-items:center;      justify-content:center;      border-radius:20px;      background:radial-gradient(circle, rgba(217,169,40,.18), rgba(0,0,0,.15));    }    .trust-icon img{      width:78px;      height:78px;      object-fit:contain;      display:block;    }    .trust-item strong{      display:block;      color:white;      font-size:clamp(10px, 1.4vw, 15px);      line-height:1.2;      white-space:nowrap;    }    .trust-item span{      color:#A8A8A8;      font-size:clamp(8px, 1.1vw, 12px);      margin-top:6px;      white-space:nowrap;    }
+    /* ================= SECTIONS ================= */    .section{      padding:100px 0;    }    .section-header{      display:flex;      justify-content:space-between;      align-items:end;      margin-bottom:45px;    }    .eyebrow{      color:var(--gold);      font-size:12px;      font-weight:800;      text-transform:uppercase;      letter-spacing:1px;      margin-bottom:10px;    }    .section-title{      font-size:clamp(34px, 4vw, 54px);      letter-spacing:-2.5px;      line-height:1;    }    .view-all{      font-size:14px;      font-weight:700;      transition:.2s;    }    .view-all:hover{      color:var(--gold);    }
+    /* ================= PRODUCTS ================= */    .product-grid{      display:grid;      grid-template-columns:repeat(4, 1fr);      gap:18px;    }    .product-card{      background:#F8F8F8;      border:1px solid #EDEDED;      border-radius:24px;      overflow:hidden;      transition:.3s;    }    .product-card:hover{      transform:translateY(-6px);      box-shadow:0 20px 50px rgba(0,0,0,.09);    }    .product-image{      height:330px;      display:flex;      align-items:center;      justify-content:center;      position:relative;      padding:24px;      background:linear-gradient(145deg, #FAFAFA, #F0F0F0);    }    .product-image img{      width:100%;      height:100%;      object-fit:contain;      transition:.3s;    }    .product-card:hover .product-image img{      transform:scale(1.05);    }    .product-info{      padding:22px;      background:white;    }    .product-badge{      display:inline-block;      padding:5px 9px;      border-radius:6px;      font-size:10px;      font-weight:800;      background:#FAF7ED;      color:#8A6A16;      border:1px solid rgba(217,169,40,.25);      margin-bottom:12px;    }    .product-info h3{      font-size:20px;      letter-spacing:-.5px;      margin-bottom:5px;    }    .product-info p{      color:#777;      font-size:13px;      margin-bottom:18px;    }    .product-footer{      display:flex;      justify-content:space-between;      align-items:center;    }    .product-price{      font-size:21px;      font-weight:800;      color:var(--gold);    }    .product-arrow{      width:38px;      height:38px;      border-radius:50%;      background:var(--black);      color:white;      display:flex;      align-items:center;      justify-content:center;      transition:.25s;    }    .product-card:hover .product-arrow{      background:var(--gold);      color:var(--black);    }
+    /* ================= TRADE ================= */    .trade{      background:var(--black);      color:white;    }    .trade-grid{      display:grid;      grid-template-columns:1.1fr .9fr;      gap:80px;      align-items:center;    }    .trade h2{      font-size:clamp(38px, 5vw, 65px);      letter-spacing:-3px;      line-height:1;      margin-bottom:25px;    }    .trade p{      color:#999;      max-width:520px;      margin-bottom:30px;    }    .trade-card{      background:#111;      border:1px solid #272727;      padding:35px;      border-radius:28px;    }    .trade-card-top{      display:flex;      justify-content:space-between;      align-items:center;      margin-bottom:30px;    }    .trade-card-top img{      width:58px;      height:58px;      object-fit:contain;    }    .trade-card small{      color:#888;    }    .trade-card h3{      font-size:25px;    }    .trade-result{      padding:25px;      border-radius:18px;      background:#1A1A1A;      border:1px solid #292929;    }    .trade-result span{      display:block;      color:#888;      font-size:12px;    }    .trade-result strong{      font-size:36px;      color:var(--gold-light);    }    .btn-gold{      background:var(--gold);      color:var(--black);    }    .btn-gold:hover{      background:var(--gold-light);    }
+    /* ================= FOOTER ================= */    .footer{      background:#F7F7F7;      padding:70px 0 30px;    }    .footer-grid{      display:grid;      grid-template-columns:2fr 1fr 1fr 1fr;      gap:40px;      margin-bottom:60px;    }    .footer h4{      margin-bottom:15px;    }    .footer a, .footer p{      display:block;      color:#777;      font-size:13px;      margin-bottom:9px;    }    .footer a:hover{      color:var(--gold);    }    .footer-bottom{      padding-top:25px;      border-top:1px solid #DDD;      color:#888;      font-size:12px;    }
+
+    /* ================= RESPONSIVE ================= */    @media(max-width:1050px){      .product-grid{        grid-template-columns:repeat(2, 1fr);      }    }    @media(max-width:900px){      .menu{        display:none;      }      .hero-grid, .trade-grid{        grid-template-columns:1fr;      }      .hero{        min-height:auto;      }      .hero-grid{        padding:65px 0;      }      .footer-grid{        grid-template-columns:1fr 1fr;      }    }    @media(max-width:600px){      .container{        width:min(var(--max), calc(100% - 28px));      }      .nav{        height:62px;        gap:8px;      }      .logo{        gap:6px;        font-size:14px;      }      .logo img{        width:28px;        height:28px;      }      .nav-link{        padding:9px 12px;        font-size:11px;      }      .hero h1{        letter-spacing:-3px;      }      .hero p{        font-size:16px;      }      .hero-visual{        min-height:400px;      }      .hero-phone-image{        width:75%;      }      .hero-floating{        right:-5px;        bottom:10px;        width:180px;      }      .trust{        padding:12px 0;      }      .trust-grid{        grid-template-columns:repeat(4, minmax(0,1fr));        gap:5px;      }      .trust-item{        min-height:145px;        padding:10px 3px;        border-radius:14px;      }      .trust-icon{        width:54px;        height:54px;        border-radius:12px;        margin-bottom:8px;      }      .trust-icon img{        width:44px;        height:44px;      }      .trust-item strong{        font-size:8px;        white-space:normal;        line-height:1.15;      }      .trust-item span{        font-size:7px;        white-space:normal;        line-height:1.15;        margin-top:4px;      }      .section{        padding:70px 0;      }      .section-header{        align-items:start;        flex-direction:column;        gap:15px;      }      .product-grid{        grid-template-columns:1fr;      }      .product-image{        height:330px;      }      .trade-grid{        gap:40px;      }      .trade-card{        padding:24px;      }      .trade-card h3{        font-size:20px;      }      .footer-grid{        grid-template-columns:1fr;      }    }  </style></head>
+<body>
+
+<!-- ================= POPUP MODAL ================= -->
+<div class="popup-overlay" id="popupOverlay">
+  <div class="popup-box">
+    <div class="popup-icon">
+      <img src="assets/icon.png" alt="Logo B-smart">
+    </div>
+    <h3>Authentification Requise</h3>
+    <p>Pour accéder au catalogue sécurisé et valider votre commande à Kinshasa, veuillez vous connecter ou créer un compte.</p>
+    <div class="popup-actions">
+      <button class="popup-btn popup-btn-primary" onclick="window.location.href='https://example.com/login'">Se connecter</button>
+      <button class="popup-btn popup-btn-secondary" onclick="window.location.href='https://example.com/signup'">Créer un compte</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= HEADER ================= --><header class="header">  <div class="container nav">    <a class='logo' href='/'>      <img src="assets/icon.png" alt="Logo B-smart">      <span>B-smart</span> iPhone    </a>    <nav class="menu">      <a class='active' href='/'>Accueil</a>      <a href='/catalogue'>iPhones</a>      <a href='/reprise'>Contre-valeur</a>      <a href='/support'>Support</a>    </nav>    <div class="nav-actions">      <a class='nav-link' href='/catalogue'>Voir les iPhones</a>    </div>  </div></header>
+<main>
+<!-- ================= HERO ================= --><section class="hero">  <div class="container hero-grid">    <div>      <div class="hero-eyebrow">        <span class="dot"></span>        Disponible à Kinshasa      </div>      <h1>Votre prochain <span>iPhone commence ici.</span></h1>      <p>Découvrez des iPhones soigneusement sélectionnés. Commandez en ligne, recevez votre appareil et payez après l'avoir vérifié.</p>      <div class="hero-buttons">        <a class='btn btn-primary' href='/catalogue'>Découvrir les iPhones →</a>        <a class='btn btn-light' href='/reprise'>Estimer mon iPhone</a>      </div>    </div>    <div class="hero-visual">      <div class="glow"></div>      <img class="hero-phone-image" src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993175/iphone_16_pro_max_nm86vg.png" alt="iPhone 16 Pro Max 256Go">      <div class="hero-floating">        <small>iPhone 16 Pro Max · 256 Go</small>        <strong>$1 200</strong>      </div>    </div>  </div></section>
+<!-- ================= SERVICES ================= --><section class="trust">  <div class="container trust-grid">    <div class="trust-item">      <div class="trust-icon"><img src="assets/livraison.png" alt="Livraison"></div>      <strong>LIVRAISON</strong>      <span>Partout à Kinshasa</span>    </div>    <div class="trust-item">      <div class="trust-icon"><img src="assets/paiement.png" alt="Paiement sécurisé"></div>      <strong>PAIEMENT SÉCURISÉ</strong>      <span>100% sécurisé</span>    </div>    <div class="trust-item">      <div class="trust-icon"><img src="assets/service.png" alt="Service après-vente"></div>      <strong>SERVICE APRÈS-VENTE</strong>      <span>À votre écoute</span>    </div>    <div class="trust-item">      <div class="trust-icon"><img src="assets/reprise.png" alt="Reprise iPhone"></div>      <strong>CONTRE-VALEUR IPHONE</strong>      <span>Valorisez votre ancien iPhone</span>    </div>  </div></section>
+<!-- ================= PRODUCTS ================= --><section class="section">  <div class="container">    <div class="section-header">      <div>        <div class="eyebrow">Sélection B-smart</div>        <h2 class="section-title">Les modèles du moment</h2>      </div>      <a class='view-all' href='/catalogue'>Voir tout →</a>    </div>    <div class="product-grid">      <!-- iPhone 11 64 Go -->      <a class='product-card' href='/produit?id=11-64'>        <div class="product-image">          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993175/iphone_11_g9vtgb.png" alt="iPhone 11 64Go" loading="lazy">        </div>        <div class="product-info">          <span class="product-badge">NEUF · SCELLÉ</span>          <h3>iPhone 11</h3>          <p>64 Go</p>          <div class="product-footer">            <span class="product-price">$215</span>            <span class="product-arrow">→</span>          </div>        </div>      </a>      <!-- iPhone 13 128 Go -->      <a class='product-card' href='/produit?id=13-128'>        <div class="product-image">          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993133/iphone_13_ffs32s.png" alt="iPhone 13 128Go" loading="lazy">        </div>        <div class="product-info">          <span class="product-badge">NEUF · SCELLÉ</span>          <h3>iPhone 13</h3>          <p>128 Go</p>          <div class="product-footer">            <span class="product-price">$355</span>            <span class="product-arrow">→</span>          </div>        </div>      </a>      <!-- iPhone 14 Pro Max 128 Go -->      <a class='product-card' href='/produit?id=14-pro-max-128'>        <div class="product-image">          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1784993138/iphone_14_pro_max_jackct.png" alt="iPhone 14 Pro Max 128Go" loading="lazy">        </div>        <div class="product-info">          <span class="product-badge">NEUF · SCELLÉ</span>          <h3>iPhone 14 Pro Max</h3>          <p>128 Go</p>          <div class="product-footer">            <span class="product-price">$650</span>            <span class="product-arrow">→</span>          </div>        </div>      </a>      <!-- iPhone 17 Air -->      <a class='product-card' href='/produit?id=17-air-256'>        <div class="product-image">          <img src="https://res.cloudinary.com/cznx5kq5/image/upload/v1785413600/iphone_17_air_osyno2.png" alt="iPhone 17 Air 256Go" loading="lazy">        </div>        <div class="product-info">          <span class="product-badge">NEUF · SCELLÉ</span>          <h3>iPhone 17 Air</h3>          <p>256 Go</p>          <div class="product-footer">            <span class="product-price">$1 200</span>            <span class="product-arrow">→</span>          </div>        </div>      </a>    </div>  </div></section>
+<!-- ================= TRADE ================= --><section class="section trade">  <div class="container trade-grid">    <div>      <div class="eyebrow">B-smart Contre-valeur</div>      <h2>Votre ancien iPhone peut financer le prochain.</h2>      <p>Vous possédez déjà un iPhone ? Indiquez son modèle, son état et ses fonctionnalités. Obtenez une estimation et découvrez combien vous devrez ajouter pour votre prochain appareil.</p>      <a class='btn btn-gold' href='/reprise'>Estimer mon iPhone →</a>    </div>    <div class="trade-card">      <div class="trade-card-top">        <div>          <small>Exemple</small>          <h3>iPhone 13 · 128 Go</h3>        </div>        <img src="assets/reprise.png" alt="Reprise iPhone">      </div>      <div class="trade-result">        <span>Valeur estimée</span>        <strong>$350</strong>      </div>      <br>      <div class="trade-result">        <span>Pour un iPhone 15 Pro à $780</span>        <span>À ajouter : $430</span>      </div>    </div>  </div></section>
+</main>
+<!-- ================= FOOTER ================= --><footer class="footer">  <div class="container footer-grid">    <div>      <a class='logo' href='/'>        <img src="assets/icon.png" alt="Logo B-smart">        <span>B-smart</span> iPhone      </a>      <p>L'iPhone que vous voulez. Au prix que vous cherchez.</p>    </div>    <div>      <h4>Boutique</h4>      <a href='/catalogue'>Tous les iPhones</a>      <a href='/catalogue?type=neuf'>iPhones neufs</a>      <a href='/catalogue?type=occasion'>iPhones d'occasion</a>    </div>    <div>      <h4>Services</h4>      <a href='/reprise'>Contre-valeur iPhone</a>      <a href='/support'>Support client</a>    </div>    <div>      <h4>Contact</h4>      <a href="https://wa.me/243823897368" onclick="gtag('event', 'click_whatsapp', {'event_category': 'engagement', 'event_label': 'WhatsApp Footer'});">WhatsApp</a>      <p>Kinshasa · RDC</p>    </div>  </div>  <div class="container footer-bottom">© 2026 B-smart iPhone. Tous droits réservés.</div></footer>
+
+<script>
+  // Affiche la fenêtre contextuelle après 4 secondes (4000 millisecondes)
+  setTimeout(function() {
+    document.getElementById('popupOverlay').classList.add('active');
+  }, 4000);
+</script>
+
+</body></html>
